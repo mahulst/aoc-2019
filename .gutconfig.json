@@ -1,0 +1,6 @@
+{
+  "dirs": ["res://"],
+  "should_exit": true,
+  "disable_colors": true,
+  "prefix": "test_"
+}
