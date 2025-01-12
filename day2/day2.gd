@@ -1,14 +1,15 @@
 extends SceneTree
 var file = FileAccess.open("res://day2/input.txt", FileAccess.READ)
 
+
 func part_1(input: String):
     var numbers = input.trim_suffix("\n").split(",")
     var int_array = PackedInt32Array()
     for s in numbers:
         int_array.append(s.to_int())
-
     var answer = run_program(int_array, 12, 2)
     print("part 1 answer: ", answer)
+
 
 func part_2(input: String):
     var numbers = input.trim_suffix("\n").split(",")
@@ -35,13 +36,13 @@ func run_program(memory_input: PackedInt32Array, noun: int, verb: int):
     while !finished:
         var num = memory[cursor]
         if num == 1:
-            var a = memory[memory[cursor+1]]+memory[memory[cursor+2]]
-            memory[memory[cursor+3]] = a
+            var a = memory[memory[cursor + 1]] + memory[memory[cursor + 2]]
+            memory[memory[cursor + 3]] = a
             cursor += 4
             pass
         elif num == 2:
-            var a = memory[memory[cursor+1]]*memory[memory[cursor+2]]
-            memory[memory[cursor+3]] = a
+            var a = memory[memory[cursor + 1]] * memory[memory[cursor + 2]]
+            memory[memory[cursor + 3]] = a
             cursor += 4
             pass
         else:
@@ -50,10 +51,10 @@ func run_program(memory_input: PackedInt32Array, noun: int, verb: int):
         pass
     return memory[0]
 
+
 func _init():
     if file:
         var content = file.get_as_text()
-        # var content = "1,9,10,3,2,3,11,0,99,30,40,50"
         file.close()
         part_1(content)
         part_2(content)
@@ -61,4 +62,3 @@ func _init():
     else:
         print("Failed to open file.")
     quit()
-
