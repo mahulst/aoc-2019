@@ -19,7 +19,7 @@ func part_2(input: String):
     for verb in range(100):
         for noun in range(100):
             var answer = run_program(int_array, noun, verb)
-            if expected == answerverb
+            if expected == answer:
                 print("part 2 answer: ", 100 * noun + verb)
                 return
         pass
