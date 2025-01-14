@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyvy8shgsumpj"]
+
+[ext_resource type="Script" path="res://utils/flycam.gd" id="1_ekfqt"]
+[ext_resource type="Script" path="res://visualizations/wire_mesh_spawner.gd" id="2_22yi6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krm4j"]
+albedo_color = Color(0.290625, 0.161061, 0.0111269, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_weypq"]
+
+[node name="Day3" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.282459, 0.959279, 0, -0.959279, 0.282459, 0, 300, 0)
+current = true
+script = ExtResource("1_ekfqt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.962951, 0.269676, 0, 0.121154, 0.432612, 0.893403, 0.240929, 0.860303, -0.449257, 0, 36.3534, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("2_22yi6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_krm4j")
+mesh = SubResource("PlaneMesh_weypq")
