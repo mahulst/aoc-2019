@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyvy8shgsumpj"]
+[gd_scene load_steps=6 format=3 uid="uid://cyvy8shgsumpj"]
 
 [ext_resource type="Script" path="res://utils/flycam.gd" id="1_ekfqt"]
 [ext_resource type="Script" path="res://visualizations/wire_mesh_spawner.gd" id="2_22yi6"]
+[ext_resource type="Script" path="res://utils/fps.gd" id="3_33nqk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krm4j"]
 albedo_color = Color(0.290625, 0.161061, 0.0111269, 1)
@@ -25,3 +26,8 @@ script = ExtResource("2_22yi6")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_krm4j")
 mesh = SubResource("PlaneMesh_weypq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_33nqk")
