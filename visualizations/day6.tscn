@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://6xq56x1yaqcw"]
+
+[ext_resource type="Script" path="res://utils/flycam.gd" id="1_xubex"]
+[ext_resource type="Script" path="res://visualizations/planet_spawner.gd" id="2_y151g"]
+[ext_resource type="Texture2D" uid="uid://b3cgfqony212t" path="res://assets/HDR_white_local_star.hdr" id="3_kyst8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_blpi1"]
+panorama = ExtResource("3_kyst8")
+
+[sub_resource type="Sky" id="Sky_8tujf"]
+sky_material = SubResource("PanoramaSkyMaterial_blpi1")
+
+[sub_resource type="Environment" id="Environment_a15pt"]
+background_mode = 2
+sky = SubResource("Sky_8tujf")
+glow_enabled = true
+
+[node name="Day6" type="Node3D"]
+
+[node name="FlyCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85496, 4.38364)
+script = ExtResource("1_xubex")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_y151g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a15pt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0.0196078, 1)
+light_energy = 7.65
+omni_range = 59.724
