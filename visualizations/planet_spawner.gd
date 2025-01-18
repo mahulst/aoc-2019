@@ -10,7 +10,6 @@ func _ready():
     add_child(planet1)
     var content = """COM)B
     B)C
-    C)D
     D)E
     E)F
     B)G

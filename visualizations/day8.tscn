@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4usc3fwtt5ac"]
+
+[ext_resource type="Script" path="res://visualizations/image_spawner.gd" id="1_pym12"]
+[ext_resource type="Script" path="res://utils/flycam.gd" id="1_truyw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f5e0"]
+albedo_color = Color(0.25098, 0.301961, 0.0392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3g5ur"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjnlv"]
+
+[node name="Day8" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.555222, 0.831702, 0, -0.831702, 0.555222, 0, 1.40332, 1.65562)
+current = true
+script = ExtResource("1_truyw")
+
+[node name="ImageSpawner" type="Node3D" parent="."]
+script = ExtResource("1_pym12")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.393396, 0.919369, 0, -0.919369, -0.393396, 0, 2.14457, -0.260095)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_6f5e0")
+mesh = SubResource("BoxMesh_3g5ur")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_pjnlv")
